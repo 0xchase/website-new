@@ -36,6 +36,10 @@ jobs:
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
+      - name: Install Playwright (Chromium)
+        working-directory: apps/slides
+        run: npx playwright install --with-deps chromium
+
       - name: Build Slidev
         run: pnpm --filter slides build
 
