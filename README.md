@@ -1,5 +1,11 @@
 # Website New
 
+## Development
+
+```
+pnpm -C apps/web dev
+```
+
 ## Slides
 
 - Good slide templates

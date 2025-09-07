@@ -61,7 +61,7 @@ export function BlogControls() {
             <Checkbox 
               id="definitions" 
               checked={showDefinitions}
-              onCheckedChange={setShowDefinitions}
+              onCheckedChange={(checked) => setShowDefinitions(checked === true)}
               className="h-3 w-3"
             />
             <label htmlFor="definitions" className="cursor-pointer text-xs">Definitions</label>
@@ -72,7 +72,7 @@ export function BlogControls() {
             <Checkbox 
               id="code-blocks" 
               checked={showCodeBlocks}
-              onCheckedChange={setShowCodeBlocks}
+              onCheckedChange={(checked) => setShowCodeBlocks(checked === true)}
               className="h-3 w-3"
             />
             <label htmlFor="code-blocks" className="cursor-pointer text-xs">Code</label>
@@ -84,7 +84,7 @@ export function BlogControls() {
             <Checkbox 
               id="assumptions" 
               checked={showAssumptions}
-              onCheckedChange={setShowAssumptions}
+              onCheckedChange={(checked) => setShowAssumptions(checked === true)}
               className="h-3 w-3"
             />
             <label htmlFor="assumptions" className="cursor-pointer text-xs">Assumptions</label>
@@ -95,7 +95,7 @@ export function BlogControls() {
             <Checkbox 
               id="claims" 
               checked={showClaims}
-              onCheckedChange={setShowClaims}
+              onCheckedChange={(checked) => setShowClaims(checked === true)}
               className="h-3 w-3"
             />
             <label htmlFor="claims" className="cursor-pointer text-xs">Claims</label>
@@ -106,7 +106,7 @@ export function BlogControls() {
             <Checkbox 
               id="evidence" 
               checked={showEvidence}
-              onCheckedChange={setShowEvidence}
+              onCheckedChange={(checked) => setShowEvidence(checked === true)}
               className="h-3 w-3"
             />
             <label htmlFor="evidence" className="cursor-pointer text-xs">Evidence</label>

@@ -14,7 +14,6 @@ export function processDefinitions(content: string): string {
     processedContent = processedContent.replace(regex, (match, offset) => {
       // Check if this match is inside a JSX component
       const beforeMatch = processedContent.substring(0, offset)
-      const afterMatch = processedContent.substring(offset + match.length)
       
       // Count unclosed JSX tags before this match
       const openTags = (beforeMatch.match(/</g) || []).length
