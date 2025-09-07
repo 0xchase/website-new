@@ -118,5 +118,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Disable elastic scrolling on macOS */
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  html {
+    /* Disable elastic scrolling on macOS */
+    overscroll-behavior: none;
   }
 }
