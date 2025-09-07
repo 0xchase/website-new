@@ -6,7 +6,7 @@ import path from 'node:path'
 export type PostMeta = { slug: string; title: string; date?: string }
 
 
-const blogRoot = path.join(process.cwd(), 'app', '(site)', 'blog')
+const blogRoot = path.join(process.cwd(), 'posts')
 
 
 export function getPosts(): PostMeta[] {
