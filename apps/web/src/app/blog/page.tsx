@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import { getPosts } from '@/lib/posts'
 import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+
+// Force static generation
+export const dynamic = 'force-static'
 
 export default function Blog() {
   const posts = getPosts()
@@ -16,21 +20,25 @@ export default function Blog() {
         
         <section className="space-y-6">
           <h2 className="text-xl font-semibold">All Posts</h2>
-          <div className="space-y-4">
+          <div className="grid gap-4">
             {posts.map((post) => (
-              <article key={post.slug} className="border rounded-lg p-6 hover:bg-accent/50 transition-colors">
-                <div className="flex items-center gap-2 mb-2">
-                  <Badge variant="secondary">{post.date?.slice(0,10) || '—'}</Badge>
-                </div>
-                <h3 className="text-lg font-semibold mb-2">
-                  <Link href={`/blog/${post.slug}/`} className="hover:underline">
-                    {post.title}
-                  </Link>
-                </h3>
-                <p className="text-muted-foreground">
-                  Read more about this topic and explore the full article.
-                </p>
-              </article>
+              <Card key={post.slug} className="hover:shadow-md transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="secondary">{post.date?.slice(0,10) || '—'}</Badge>
+                  </div>
+                  <CardTitle>
+                    <Link href={`/blog/${post.slug}/`} className="hover:underline">
+                      {post.title}
+                    </Link>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Read more about this topic and explore the full article.
+                  </CardDescription>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </section>

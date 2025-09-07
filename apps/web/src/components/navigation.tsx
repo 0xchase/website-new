@@ -59,7 +59,7 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <div className="sticky top-0 border-b">
+    <div className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="flex justify-between px-6 py-2">
         <Link href="/" className="font-mono text-sm text-black dark:text-white hover:text-foreground transition-colors cursor-pointer flex items-center">
           $ {pathname}&thinsp;<span className="animate-pulse inline-block w-2 h-4 bg-current"></span>
