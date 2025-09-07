@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "slidev build --base /REPO_NAME/slides/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
@@ -12,5 +12,8 @@
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "vue": "^3.5.18"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.55.0"
   }
 }
