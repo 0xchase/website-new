@@ -10,5 +10,10 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.13.1",
-  "workspaces": ["apps/*"]
+  "workspaces": [
+    "apps/*"
+  ],
+  "dependencies": {
+    "lucide-react": "^0.542.0"
+  }
 }
