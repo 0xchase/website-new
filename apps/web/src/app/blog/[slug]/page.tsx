@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import matter from 'gray-matter'
@@ -10,6 +11,10 @@ import { DefinitionCallout } from '../definition-callout'
 import { InlineDefinition } from '../inline-definition'
 import { TableOfContents } from '@/components/table-of-contents'
 import { processDefinitions } from '../process-definitions'
+import { BlogControls } from '../blog-controls'
+import { Assumption } from '../labels/assumption'
+import { Claim } from '../labels/claim'
+import { Evidence } from '../labels/evidence'
 
 // Components available in MDX
 const components = {
@@ -19,6 +24,9 @@ const components = {
   CardTitle,
   DefinitionCallout,
   InlineDefinition,
+  Assumption,
+  Claim,
+  Evidence,
 }
 
 interface PostPageProps {
@@ -40,7 +48,7 @@ export async function generateStaticParams() {
 export const dynamic = 'force-static'
 
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = params
+  const { slug } = await params
   const filePath = path.join(blogRoot, `${slug}.mdx`)
   
   if (!fs.existsSync(filePath)) {
@@ -71,25 +79,37 @@ export default async function PostPage({ params }: PostPageProps) {
         
         <section className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-          {date && (
-            <p className="text-muted-foreground">
-              {new Date(date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </p>
-          )}
-        </section>
+          <div className="space-y-2">
+            {date && (
+              <p className="text-muted-foreground">
+                {new Date(date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </p>
+            )}
+                   {frontmatter.tags && frontmatter.tags.length > 0 && (
+                     <div className="flex flex-wrap gap-2">
+                       {frontmatter.tags.map((tag: string) => (
+                         <Badge key={tag} variant="secondary" className="text-xs">
+                           {tag}
+                         </Badge>
+                       ))}
+                     </div>
+                   )}
+                 </div>
+                 <BlogControls />
+               </section>
         
         <section className="prose prose-neutral dark:prose-invert max-w-none prose-p:leading-relaxed prose-headings:leading-tight prose-li:leading-relaxed">
           <MDXRemote source={processedContent} components={components} />
         </section>
       </main>
       
-      <aside className="hidden lg:block absolute top-0 right-0 h-full">
-        <TableOfContents />
-      </aside>
-    </div>
-  )
-}
+        <aside className="hidden lg:block absolute top-0 right-0 h-full">
+          <TableOfContents />
+        </aside>
+      </div>
+    )
+  }

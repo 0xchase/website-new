@@ -3,7 +3,6 @@
 import * as React from "react"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ModeToggle } from "@/components/mode-toggle"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -112,9 +111,6 @@ export function Navigation() {
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                 <Link href="/blog">Blog</Link>
               </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <ModeToggle />
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

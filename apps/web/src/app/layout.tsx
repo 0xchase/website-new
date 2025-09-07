@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
 import { PageTransition } from "@/components/page-transition";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navigation />
+          <PageTransition>
             {children}
+          </PageTransition>
+          <div className="fixed bottom-6 right-6 z-50">
+            <ModeToggle />
+          </div>
         </ThemeProvider>
       </body>
     </html>

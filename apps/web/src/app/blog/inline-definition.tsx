@@ -14,8 +14,8 @@ export function InlineDefinition({ term, children }: InlineDefinitionProps) {
   return (
     <span className="relative inline-block">
       <span
-        className={`cursor-help transition-all duration-200 ${
-          isHovered ? "underline decoration-dotted" : ""
+        className={`cursor-help transition-all duration-200 underline decoration-dotted decoration-muted-foreground/30 ${
+          isHovered ? "decoration-foreground/60" : ""
         }`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

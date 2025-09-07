@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getPosts } from '@/lib/posts'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { BlogFlowWrapper } from './blog-flow-wrapper'
+import { BlogFilter } from './blog-filter'
 
 // Force static generation
 export const dynamic = 'force-static'
@@ -18,33 +20,9 @@ export default function Blog() {
           </p>
         </section>
         
-        <section className="space-y-4">
-          <h2 className="text-xl font-semibold">All Posts</h2>
-          <div className="space-y-1">
-            {posts.map((post) => (
-              <div key={post.slug} className="flex items-center justify-between py-2 hover:bg-accent/50 rounded-md px-2 -mx-2 transition-colors">
-                <Link href={`/blog/${post.slug}/`} className="hover:underline text-foreground">
-                  {post.title}
-                </Link>
-                <span className="text-muted-foreground text-sm">
-                  {post.date?.slice(0,10) || '—'}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <BlogFlowWrapper posts={posts} />
 
-        <section className="space-y-4">
-          <h2 className="text-xl font-semibold">Categories</h2>
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="outline">Technology</Badge>
-            <Badge variant="outline">Development</Badge>
-            <Badge variant="outline">Design</Badge>
-            <Badge variant="outline">Music</Badge>
-            <Badge variant="outline">Research</Badge>
-            <Badge variant="outline">Tutorials</Badge>
-          </div>
-        </section>
+        <BlogFilter posts={posts} />
 
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">Subscribe</h2>
