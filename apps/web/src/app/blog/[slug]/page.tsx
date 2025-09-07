@@ -6,6 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import matter from 'gray-matter'
+import { DefinitionCallout } from '../definition-callout'
+import { InlineDefinition } from '../inline-definition'
+import { TableOfContents } from '@/components/table-of-contents'
+import { processDefinitions } from '../process-definitions'
 
 // Components available in MDX
 const components = {
@@ -13,6 +17,8 @@ const components = {
   CardContent,
   CardHeader,
   CardTitle,
+  DefinitionCallout,
+  InlineDefinition,
 }
 
 interface PostPageProps {
@@ -44,37 +50,46 @@ export default async function PostPage({ params }: PostPageProps) {
   const file = fs.readFileSync(filePath, 'utf8')
   const { data: frontmatter, content } = matter(file)
   
+  // Process content to automatically inject inline definitions
+  const processedContent = processDefinitions(content)
+  
   const title = frontmatter.title || slug
   const date = frontmatter.date
 
   return (
-    <main className="mx-auto max-w-2xl p-6 space-y-8">
-      <div className="mb-6">
-        <Link 
-          href="/blog" 
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Blog
-        </Link>
-      </div>
+    <div className="relative">
+      <main className="mx-auto max-w-2xl p-6 space-y-8">
+        <div className="mb-6">
+          <Link 
+            href="/blog" 
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Blog
+          </Link>
+        </div>
+        
+        <section className="space-y-4">
+          <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+          {date && (
+            <p className="text-muted-foreground">
+              {new Date(date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </p>
+          )}
+        </section>
+        
+        <section className="prose prose-neutral dark:prose-invert max-w-none prose-p:leading-relaxed prose-headings:leading-tight prose-li:leading-relaxed">
+          <MDXRemote source={processedContent} components={components} />
+        </section>
+      </main>
       
-      <section className="space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-        {date && (
-          <p className="text-muted-foreground">
-            {new Date(date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </p>
-        )}
-      </section>
-      
-      <section className="prose prose-neutral dark:prose-invert max-w-none prose-p:leading-relaxed prose-headings:leading-tight prose-li:leading-relaxed">
-        <MDXRemote source={content} components={components} />
-      </section>
-    </main>
+      <aside className="hidden lg:block absolute top-0 right-0 h-full">
+        <TableOfContents />
+      </aside>
+    </div>
   )
 }

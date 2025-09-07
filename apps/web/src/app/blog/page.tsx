@@ -18,27 +18,18 @@ export default function Blog() {
           </p>
         </section>
         
-        <section className="space-y-6">
+        <section className="space-y-4">
           <h2 className="text-xl font-semibold">All Posts</h2>
-          <div className="grid gap-4">
+          <div className="space-y-1">
             {posts.map((post) => (
-              <Card key={post.slug} className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="secondary">{post.date?.slice(0,10) || '—'}</Badge>
-                  </div>
-                  <CardTitle>
-                    <Link href={`/blog/${post.slug}/`} className="hover:underline">
-                      {post.title}
-                    </Link>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    Read more about this topic and explore the full article.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <div key={post.slug} className="flex items-center justify-between py-2 hover:bg-accent/50 rounded-md px-2 -mx-2 transition-colors">
+                <Link href={`/blog/${post.slug}/`} className="hover:underline text-foreground">
+                  {post.title}
+                </Link>
+                <span className="text-muted-foreground text-sm">
+                  {post.date?.slice(0,10) || '—'}
+                </span>
+              </div>
             ))}
           </div>
         </section>
