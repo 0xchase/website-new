@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] space-y-4 -mt-4">
+    <main className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] space-y-4 -mt-8">
       <h1 className="text-5xl font-bold tracking-tight">Chase Kanipe</h1>
       <p className="text-lg text-muted-foreground">Graduate Student | Security Researcher | Musician</p>
       <div className="flex space-x-4">
