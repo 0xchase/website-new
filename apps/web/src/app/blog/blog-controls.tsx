@@ -51,7 +51,7 @@ export function BlogControls() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1">
           <Settings className="h-3 w-3" />
-          Display
+            Highlight
           <ChevronDown className="h-3 w-3" />
         </Button>
       </DropdownMenuTrigger>
