@@ -15,6 +15,11 @@ import { BlogControls } from '../blog-controls'
 import { Assumption } from '../labels/assumption'
 import { Claim } from '../labels/claim'
 import { Evidence } from '../labels/evidence'
+import { AreaChartExample } from '../america/charts/area-chart'
+import { BarChartExample } from '../america/charts/bar-chart'
+import { PieChartExample } from '../america/charts/pie-chart'
+import { RadarChartExample } from '../america/charts/radar-chart'
+import { RadialChartExample } from '../america/charts/radial-chart'
 
 // Components available in MDX
 const components = {
@@ -27,6 +32,11 @@ const components = {
   Assumption,
   Claim,
   Evidence,
+  AreaChartExample,
+  BarChartExample,
+  PieChartExample,
+  RadarChartExample,
+  RadialChartExample,
 }
 
 interface PostPageProps {
