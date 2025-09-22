@@ -4,7 +4,7 @@ export default function Other() {
       <section className="space-y-4">
         <h1 className="text-3xl font-bold tracking-tight">Other Projects</h1>
         <p className="text-muted-foreground">
-          Miscellaneous projects and experiments that don't fit into other categories.
+          Miscellaneous projects and experiments that don&apos;t fit into other categories.
         </p>
       </section>
 

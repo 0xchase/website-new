@@ -1,7 +1,7 @@
 "use client"
 
 import { PublicationFilter } from "./publication-filter"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import Link from "next/link"
 import { useState } from "react"
@@ -34,7 +34,7 @@ export default function Research() {
       <section className="space-y-4">
         <h1 className="text-3xl font-bold tracking-tight">Research</h1>
         <p className="text-foreground">
-          I'm currently investigating Target Generation Algorithms for IPv6 under <a href="https://www.cs.umd.edu/">Dave Levin</a> at the <a href="https://www.cs.umd.edu/">University of Maryland, College Park</a>.
+          I&apos;m currently investigating Target Generation Algorithms for IPv6 under <a href="https://www.cs.umd.edu/">Dave Levin</a> at the <a href="https://www.cs.umd.edu/">University of Maryland, College Park</a>.
         </p>
       </section>
 

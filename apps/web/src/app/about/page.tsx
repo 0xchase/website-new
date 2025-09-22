@@ -99,7 +99,7 @@ export default function About() {
             </div>
             <div className="space-y-2">
               <h3 className="font-medium">Radare2 Conference 2020</h3>
-              <p className="text-muted-foreground text-sm">This talk is an overview the new "Modality" radare2 plugin to perform symbolic execution. The tool is built on top of angr, and provides a faster alternative to using angr than writing scripts. This integration has numerous advantages, including easy switching between concrete and symbolic execution, useful visualizations of the angr backend, as well as a suite of features for vulnerability detection and exploit generation.</p>
+              <p className="text-muted-foreground text-sm">This talk is an overview the new &quot;Modality&quot; radare2 plugin to perform symbolic execution. The tool is built on top of angr, and provides a faster alternative to using angr than writing scripts. This integration has numerous advantages, including easy switching between concrete and symbolic execution, useful visualizations of the angr backend, as well as a suite of features for vulnerability detection and exploit generation.</p>
               <div className="w-full rounded-md border overflow-hidden">
                 <iframe
                   className="w-full"
