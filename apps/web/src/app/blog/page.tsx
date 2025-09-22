@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getPosts } from '@/lib/posts'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { BlogFlowWrapper } from './blog-flow-wrapper'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { BlogFilter } from './blog-filter'
 
 // Force static generation
@@ -16,13 +16,47 @@ export default function Blog() {
         <section className="space-y-4">
           <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
           <p className="text-muted-foreground">
-            Thoughts on technology, development, and the creative process.
+            I write about a variety of topics, including science, technology, and philosophy. During undergrad, I was president of the Philosophy Club at the University of Maryland for 2 years.
           </p>
         </section>
-        
-        <BlogFlowWrapper posts={posts} />
 
         <BlogFilter posts={posts} />
+
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold">Book Reviews</h2>
+          <div className="rounded-md border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-xs">Title</TableHead>
+                  <TableHead className="text-xs">Author</TableHead>
+                  <TableHead className="text-xs">Rating</TableHead>
+                  <TableHead className="text-xs">Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-medium text-sm">The C Programming Language</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">Kernighan & Ritchie</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">★★★★★</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">2024-01-15</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium text-sm">Clean Code</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">Robert Martin</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">★★★★☆</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">2024-01-10</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium text-sm">Design Patterns</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">Gang of Four</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">★★★★☆</TableCell>
+                  <TableCell className="text-xs text-muted-foreground">2024-01-05</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </section>
 
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">Subscribe</h2>

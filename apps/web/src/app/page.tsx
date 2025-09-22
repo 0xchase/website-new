@@ -26,9 +26,9 @@ export default function Home() {
         </a>
       </div>
       <div className="flex space-x-3">
-        <button className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium">
+        <a href="/contact" className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium">
           Contact
-        </button>
+        </a>
         <button className="px-4 py-2 border border-border rounded-md hover:bg-accent transition-colors text-sm font-medium">
           Tags
         </button>

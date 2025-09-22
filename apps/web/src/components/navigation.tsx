@@ -15,24 +15,24 @@ import {
 
 const projects: { title: string; href: string; description: string }[] = [
   {
-    title: "Cybersecurity",
-    href: "/projects/cybersecurity",
-    description: "Security research and penetration testing",
-  },
-  {
-    title: "Machine Learning",
-    href: "/projects/machine-learning",
-    description: "AI models and data analysis projects",
-  },
-  {
-    title: "Audio Programming",
-    href: "/projects/audio-programming",
-    description: "Digital signal processing and audio software",
+    title: "Procedural Audio",
+    href: "/projects/procedural-audio",
+    description: "Novel audio generation and processing tools",
   },
   {
     title: "Luthier",
     href: "/projects/luthier",
     description: "Handcrafted musical instruments",
+  },
+  {
+    title: "Bookbinding",
+    href: "/projects/bookbinding",
+    description: "Traditional bookbinding techniques and restoration",
+  },
+  {
+    title: "Other",
+    href: "/projects/other",
+    description: "Miscellaneous projects and experiments",
   },
 ]
 
@@ -48,9 +48,14 @@ const music: { title: string; href: string; description: string }[] = [
     description: "Original music for film and media",
   },
   {
-    title: "Piano",
-    href: "/music/piano",
+    title: "Performances",
+    href: "/music/performances",
     description: "Piano compositions and performances",
+  },
+  {
+    title: "Studio",
+    href: "/music/studio",
+    description: "Recording studio and production work",
   },
 ]
 
@@ -63,7 +68,7 @@ export function Navigation() {
         <Link href="/" className="font-mono text-sm text-black dark:text-white hover:text-foreground transition-colors cursor-pointer flex items-center">
           $ {pathname}&thinsp;<span className="animate-pulse inline-block w-2 h-4 bg-current"></span>
         </Link>
-        <NavigationMenu viewport={false}>
+        <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -78,7 +83,7 @@ export function Navigation() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                <ul className="grid w-[300px] gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px] max-w-[90vw]">
                   {projects.map((project) => (
                     <ListItem
                       key={project.title}
@@ -94,7 +99,7 @@ export function Navigation() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Music</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                <ul className="grid w-[300px] gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px] max-w-[90vw]">
                   {music.map((item) => (
                     <ListItem
                       key={item.title}

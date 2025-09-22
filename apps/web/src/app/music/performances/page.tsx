@@ -1,8 +1,8 @@
-export default function Piano() {
+export default function Performances() {
   return (
     <main className="mx-auto max-w-2xl p-6 space-y-8">
         <section className="space-y-4">
-          <h1 className="text-3xl font-bold tracking-tight">Piano</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Performances</h1>
           <p className="text-muted-foreground">
             Piano compositions, performances, and explorations of classical and contemporary repertoire.
           </p>
