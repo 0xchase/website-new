@@ -64,11 +64,15 @@ export function Navigation() {
 
   return (
     <div className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
-      <div className="flex justify-between px-6 py-2">
-        <Link href="/" className="font-mono text-sm text-black dark:text-white hover:text-foreground transition-colors cursor-pointer flex items-center">
-          $ {pathname}&thinsp;<span className="animate-pulse inline-block w-2 h-4 bg-current"></span>
+      <div className="mx-auto flex items-center justify-between gap-4 max-w-2xl px-6 py-2">
+        <Link
+          href="/"
+          className="min-w-0 font-mono text-sm text-black dark:text-white hover:text-foreground transition-colors cursor-pointer flex items-center"
+        >
+          <span className="truncate">$ {pathname}&thinsp;</span>
+          <span className="shrink-0 animate-pulse inline-block w-2 h-4 bg-current"></span>
         </Link>
-        <NavigationMenu>
+        <NavigationMenu className="shrink-0">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
